@@ -20,7 +20,6 @@
   "homepage": "https://github.com/crlimacastro/my-game-lib#readme",
   "devDependencies": {
     "concurrently": "^7.2.1",
-    "create-react-app": "^5.0.1",
-    "nodemon": "^2.0.16"
+    "create-react-app": "^5.0.1"
   }
 }

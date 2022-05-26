@@ -1,11 +1,8 @@
 import bcrypt from "bcrypt";
-import { client } from "../../database";
+import client from "../../db/client";
+import User from "./interfaces/User";
 
-export interface User {
-  id: string;
-  username: string;
-  password: string;
-}
+export { default as User } from "./interfaces/User";
 
 export const getUserByUsername = async (
   username: string

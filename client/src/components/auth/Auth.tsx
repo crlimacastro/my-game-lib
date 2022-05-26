@@ -1,15 +1,12 @@
-import { FC, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Button from "react-bootstrap/Button";
 import Alert from "react-bootstrap/Alert";
-import { userState } from "../state";
+import { userState } from "../../state";
 import { useAtom } from "jotai";
-import { AuthForm } from "./AuthForm";
+import AuthForm from "./AuthForm";
+import User from "../../interfaces/User";
 
-export interface User {
-  username: string;
-}
-
-export const Auth: FC = () => {
+export default () => {
   const [isRegistering, setIsRegistering] = useState(false);
   const [user, setUser] = useAtom(userState);
 
@@ -50,7 +47,7 @@ export const Auth: FC = () => {
   };
 
   const login = async (username: string, password: string): Promise<void> => {
-    const res: Response = await fetch("http://localhost:8080/login", {
+    await fetch("http://localhost:8080/login", {
       method: "POST",
       credentials: "include",
       headers: {
