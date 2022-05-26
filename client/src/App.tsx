@@ -1,12 +1,12 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 
-import { Authentication, SearchBar } from './components';
+import { Auth, SearchBar } from "./components";
 
 const App = () => {
   return (
     <div className="App">
-      <Authentication></Authentication>
-      <SearchBar></SearchBar>
+      <Auth/>
+      <SearchBar/>
     </div>
   );
 };
