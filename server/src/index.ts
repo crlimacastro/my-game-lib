@@ -2,7 +2,7 @@ import dotenv from "dotenv";
 dotenv.config(); // Init .env variables
 import express from "express";
 import { initMiddleware } from "./middleware";
-import router from "./route";
+import router from "./controllers";
 import client from "./db/client";
 
 // Connect to database

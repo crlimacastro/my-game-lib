@@ -1,8 +1,8 @@
 export default interface Game {
-    slug: string;
-    id: number;
-    name: string;
-    released: string;
-    background_image: string;
-    short_screenshots: { id: number; image: string }[];
-  }
+  id: number;
+  name: string;
+  background_image: string;
+  genres: { name: string }[];
+  platforms: { platform: { name: string } }[];
+  released: string;
+}

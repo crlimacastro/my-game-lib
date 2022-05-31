@@ -1,19 +1,23 @@
+import { FC } from "react";
 import CardGroup from "react-bootstrap/CardGroup";
-import Game from "../../interfaces/Game";
+import GameCardData from "../../interfaces/GameCardData";
 import GameCard from "./GameCard";
 
-interface GameCardGalleryProps {
-  games: Game[];
+interface Props {
+  className?: string;
+  data: GameCardData[];
 }
 
-export default ({ games }: GameCardGalleryProps) => {
+const GameCardGallery: FC<Props> = ({ className, data: games }) => {
   return (
-    <CardGroup className="grid align-items-center">
+    <CardGroup className={className + " grid align-items-center"}>
       {games.map((game, i) => (
-        <div key={i} className="box col-lg-4 mb-3 d-flex align-items-stretch">
-          <GameCard game={game} />
+        <div key={i} className="box col-xl-3 col-lg-4 col-md-4 col-sm-6 my-2 ">
+          <GameCard data={game} className="mx-2" />
         </div>
       ))}
     </CardGroup>
   );
 };
+
+export default GameCardGallery;

@@ -1,13 +1,40 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 
-import Auth from "./components/auth/Auth";
-import Search from "./components/games/Search";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import { useAtom } from "jotai";
+
+import { userState } from "./state";
+
+import Header from "./components/Header";
+import Home from "./components/pages/Home";
+import Login from "./components/pages/Login";
+import Signup from "./components/pages/Signup";
+import Favorites from "./components/pages/Favorites";
+import NotFound from "./components/pages/NotFound";
+import { useEffect } from "react";
+import { getUserInSession } from "./api/session";
 
 const App = () => {
+  const [, setUser] = useAtom(userState);
+
+  useEffect(() => {
+    getUserInSession().then((user) => {
+      setUser(user);
+    });
+  }, []);
+
   return (
     <div className="App">
-      <Auth />
-      <Search />
+      <BrowserRouter>
+        <Header />
+        <Routes>
+          <Route index element={<Home />} />
+          <Route path="/favorites" element={<Favorites />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 };

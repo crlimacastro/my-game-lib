@@ -4,7 +4,7 @@ import { User, getUserByUsername, createUser } from "../api/user";
 
 const router: Router = Router();
 
-router.get("/user", (req: Request, res: Response): void => {
+router.get("/session", (req: Request, res: Response): void => {
   if (req.user) {
     res.send(req.user);
   } else {
