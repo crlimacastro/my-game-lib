@@ -9,6 +9,9 @@ import { Link } from "react-router-dom";
 import { userState } from "../state";
 import LogoutButton from "./auth/LogoutButton";
 
+/**
+ * Reusable Header component with logo, navbar, and logout button
+ */
 const Header: FC = () => {
     const [user] = useAtom(userState);
 

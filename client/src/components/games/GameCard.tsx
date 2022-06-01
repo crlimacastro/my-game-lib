@@ -14,6 +14,7 @@ const GameCard: FC<Props> = ({ data, className }) => {
   const toggleFavorite = async (): Promise<void> => {
     const { id } = data.game;
 
+    // Send appropriate favorite request to server
     if (isFavorite) {
       await fetch(`http://localhost:8080/games/unfavorite?id=${id}`, {
         method: "DELETE",

@@ -8,6 +8,11 @@ interface Props {
   onSubmit: (username: string, password: string) => void;
 }
 
+/**
+ * Reusable Authentication Form component.
+ * In props, define what appears on the form with title
+ * and what happens onSubmit.
+ */
 const AuthForm: FC<Props> = ({ title, onSubmit, className }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");

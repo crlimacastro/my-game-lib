@@ -31,13 +31,15 @@ const Signup: FC = () => {
 
     return (
         <>
-            {user ? <Navigate to="/" replace={true} /> : <>
-                <AuthForm title="Sign Up" onSubmit={register} className="m-4" />
-                <Alert variant="secondary">
-                    <Alert.Heading>Already have an account?</Alert.Heading>
-                    <Link to="/login">Login</Link>
-                </Alert>
-            </>}
+            {user ?
+                // Redirect to home if user in session 
+                <Navigate to="/" replace={true} /> : <>
+                    <AuthForm title="Sign Up" onSubmit={register} className="m-4" />
+                    <Alert variant="secondary">
+                        <Alert.Heading>Already have an account?</Alert.Heading>
+                        <Link to="/login">Login</Link>
+                    </Alert>
+                </>}
 
         </>
     );

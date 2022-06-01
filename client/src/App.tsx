@@ -1,6 +1,6 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 
-import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { useAtom } from "jotai";
 
 import { userState } from "./state";
@@ -17,6 +17,7 @@ import { getUserInSession } from "./api/session";
 const App = () => {
   const [, setUser] = useAtom(userState);
 
+  // Get User in session (if any) on App init
   useEffect(() => {
     getUserInSession().then((user) => {
       setUser(user);

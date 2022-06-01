@@ -23,6 +23,7 @@ const Home: FC = () => {
     results: Game[];
   }
 
+  // Turns game data into game data with favorite state
   const parseGameData = async (res: SearchRes): Promise<GameCardData[]> => {
     const games: GameCardData[] = [];
     for (const game of res.results) {
@@ -44,6 +45,7 @@ const Home: FC = () => {
     setIsSearching(false);
   };
 
+  // Search last query on init
   useEffect(() => {
     if (!user || !lastSearchQuery) return;
     search(lastSearchQuery);
@@ -56,6 +58,7 @@ const Home: FC = () => {
         <SearchBar onSubmit={(searchTerm) => search(searchTerm)} />
         {isSearching ? <Spinner animation="border" className="m-2" /> : <>{data.length > 0 ? <GameCardGallery data={data} /> : <p>No results found</p>}</>}
       </Container>
+      {/* Redirect to login if no user in session */}
     </> : <Navigate to="/login" replace={true} />}
   </>);
 };

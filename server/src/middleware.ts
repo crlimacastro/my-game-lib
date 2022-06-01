@@ -6,7 +6,6 @@ import cookieParser from "cookie-parser";
 import passport from "passport";
 import { Strategy } from "passport-local";
 import bcrypt from "bcrypt";
-import path from "path";
 import { User, getUserByUsername, getUserById } from "./api/user";
 import Env from "./interfaces/Env";
 

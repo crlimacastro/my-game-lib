@@ -19,8 +19,10 @@ const Favorites: FC = () => {
   const getFavorites = async (): Promise<GameCardData[]> => {
     try {
       const gameIds: FavoritesRes = await (
+        // Get list of favorite game ids from server
         await fetch(`http://localhost:8080/games/favorites`, { credentials: "include" })
       ).json();
+      // Get details for each game from server and return array with details
       const games: Game[] = await Promise.all(gameIds.map(async ({ game_id }) => {
         const res = await fetch(`http://localhost:8080/games/game/${game_id}`)
         return await res.json();
@@ -32,6 +34,7 @@ const Favorites: FC = () => {
     return [];
   };
 
+  // Search for favorite games on init
   useEffect(() => {
     if (!user) return;
     setIsSearching(true);
@@ -50,6 +53,7 @@ const Favorites: FC = () => {
             You currently have no favorites. <Heart /> -{'>'} <HeartFill style={{ color: 'red' }} /> some games to see them here.
           </p>}</>}
         </Container>
+        {/* Redirect to login if no user in session */}
       </> : <Navigate to="/login" replace={true} />}
     </>
   );

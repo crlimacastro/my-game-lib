@@ -27,13 +27,16 @@ const Login: FC = () => {
     };
 
     return (
-        <>{user ?
-            <Navigate to="/" replace={true} /> : <>
-                <AuthForm title="Login" onSubmit={login} className="m-4" /><Alert variant="secondary">
-                    <Alert.Heading>Don't have an account?</Alert.Heading>
-                    <Link to="/signup">Sign up</Link>
-                </Alert>
-            </>}
+
+        <>
+            {user ?
+                // Redirect to home if user in session
+                < Navigate to="/" replace={true} /> : <>
+                    <AuthForm title="Login" onSubmit={login} className="m-4" /><Alert variant="secondary">
+                        <Alert.Heading>Don't have an account?</Alert.Heading>
+                        <Link to="/signup">Sign up</Link>
+                    </Alert>
+                </>}
         </>
     );
 };

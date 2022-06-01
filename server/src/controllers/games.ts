@@ -1,6 +1,4 @@
 import { Router, Request, Response } from "express";
-import axios from "axios";
-import Env from "../interfaces/Env";
 import {
   favoriteGame,
   getFavorites,
@@ -85,6 +83,7 @@ router.get("/favorites", async (req: Request, res: Response): Promise<void> => {
     res.status(500).send("Internal server error");
   }
 });
+
 router.post(
   "/favorite",
   async (req: Request<{}, {}, FavoriteReq>, res: Response): Promise<void> => {

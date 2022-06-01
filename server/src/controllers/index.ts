@@ -1,10 +1,10 @@
 import { Router } from "express";
-import authRouter from "./user";
-import gameRouter from "./games";
+import userRouter from "./user";
+import gamesRouter from "./games";
 
 const router: Router = Router();
 
-router.use("/user", authRouter);
-router.use("/games", gameRouter);
+router.use("/user", userRouter);
+router.use("/games", gamesRouter);
 
 export default router;
